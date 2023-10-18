@@ -20,7 +20,7 @@ module "vpc" {
 }
 
 module "metabase" {
-  source = "../../../terraform-aws-metabase"
+  source = "HippoLabs-UK/metabase/aws"
 
   region                              = var.region
   environment                         = var.environment

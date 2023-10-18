@@ -12,14 +12,14 @@ See [`examples`](examples) directory for working examples to reference:
 
 ```hcl
 module "metabase" {
-  source = "hippolabs-uk/metabase/aws"
+  source = "HippoLabs-UK/metabase/aws"
 
   region                              = var.region
   environment                         = var.environment
   metabase_db_credentials_secret_name = var.metabase_db_credentials_secret_name
-  vpc_id                              = module.vpc.vpc_id
-  private_subnet_ids                  = module.vpc.private_subnets
-  public_subnet_ids                   = module.vpc.public_subnets
+  vpc_id                              = var.vpc_id
+  private_subnet_ids                  = var.private_subnet_ids
+  public_subnet_ids                   = var.public_subnets_ids
 }
 ```
 
