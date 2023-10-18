@@ -1,5 +1,22 @@
-# terraform-aws-metabase
+# AWS Hosted Metabase Terraform Module
 Terraform module for setting up a self-hosted Metabase solution on AWS
+
+
+## Usage
+See See [`examples`](https://github.com/HippoLabs-UK/terraform-aws-metabase/tree/main/examples) directory for working examples to reference:
+
+```hcl
+module "metabase" {
+  source = "hippolabs-uk/metabase/aws"
+
+  region                              = var.region
+  environment                         = var.environment
+  metabase_db_credentials_secret_name = var.metabase_db_credentials_secret_name
+  vpc_id                              = module.vpc.vpc_id
+  private_subnet_ids                  = module.vpc.private_subnets
+  public_subnet_ids                   = module.vpc.public_subnets
+}
+```
 
 
 ## Pre-requisites
@@ -91,3 +108,7 @@ No modules.
 | <a name="output_metabase_ecs_security_group_id"></a> [metabase\_ecs\_security\_group\_id](#output\_metabase\_ecs\_security\_group\_id) | Security Group Id to whitelist of Metabase will need to connect to a private RDS database in the same VPC |
 | <a name="output_rds_host"></a> [rds\_host](#output\_rds\_host) | Metabase Backend Database Host name |
 <!-- END_TF_DOCS -->
+
+## License
+
+Apache-2.0 Licensed. See [LICENSE](https://github.com/HippoLabs-UK/terraform-aws-metabase/blob/main/LICENSE).

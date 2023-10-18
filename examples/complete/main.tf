@@ -22,7 +22,6 @@ module "vpc" {
 
 module "metabase" {
   source = "../../../terraform-aws-metabase"
-  #  version = ""
 
   region                              = var.region
   environment                         = var.environment
