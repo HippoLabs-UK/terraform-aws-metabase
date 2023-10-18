@@ -34,6 +34,7 @@ resource "aws_db_instance" "metabase_db" {
   publicly_accessible         = false
   copy_tags_to_snapshot       = true
   deletion_protection         = true
+  skip_final_snapshot         = true
   storage_encrypted           = true
   allow_major_version_upgrade = true
 

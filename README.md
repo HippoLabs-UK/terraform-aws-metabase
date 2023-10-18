@@ -1,9 +1,14 @@
-# AWS Hosted Metabase Terraform Module
-Terraform module for setting up a self-hosted Metabase solution on AWS
+<h1><img align="center" height="60" src="docs/logo.png"> </h1>
+
+## Metabase on AWS
+Terraform module for setting up a self-hosted Metabase solution on AWS.
+
+## Infrastructure architecture
+<img src="docs/architecture.png" alt="text" width="800"/>
 
 
 ## Usage
-See See [`examples`](https://github.com/HippoLabs-UK/terraform-aws-metabase/tree/main/examples) directory for working examples to reference:
+See [`examples`](examples) directory for working examples to reference:
 
 ```hcl
 module "metabase" {
@@ -18,10 +23,13 @@ module "metabase" {
 }
 ```
 
-
 ## Pre-requisites
-1. [Optional] Validated SSL certificate to enable HTTPS traffic
-2. [Required] Secrets Manager secret containing a secret key of `password` and the value to be used for the backend MySQL database.
+1. **[Required]** Create a key-value pair secret in AWS Secrets Manager. The key should be `password` and the value will be the master password to use for the Metabase backend database.
+The password must be of 8–41 characters long and can include any printable ASCII character except /, ', ", @, or a space.
+The secret name can be passed to the module using the `metabase_db_credentials_secret_name` variable.
+
+
+2. **[Optional]** Create and validate a public certificate in AWS Certificate Manager. The certificate ARN can then be passed to the Metabase module using the `ssl_certificate` variable. This will enable HTTPS traffic.
 
 
 <!-- BEGIN_TF_DOCS -->
@@ -109,6 +117,6 @@ No modules.
 | <a name="output_rds_host"></a> [rds\_host](#output\_rds\_host) | Metabase Backend Database Host name |
 <!-- END_TF_DOCS -->
 
-## License
 
-Apache-2.0 Licensed. See [LICENSE](https://github.com/HippoLabs-UK/terraform-aws-metabase/blob/main/LICENSE).
+## License
+Apache-2.0 Licensed. See [LICENSE](LICENSE).
