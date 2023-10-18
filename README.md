@@ -1,4 +1,6 @@
-<h1><img align="center" height="60" src="docs/logo.png"> </h1>
+<p align="center">
+    <img height="50" src="docs/logo.png">
+</p>
 
 ## Metabase on AWS
 Terraform module for setting up a self-hosted Metabase solution on AWS.
