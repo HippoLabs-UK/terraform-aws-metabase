@@ -28,6 +28,8 @@ resource "aws_security_group" "metabase_alb_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+
+  lifecycle { create_before_destroy = true }
 }
 
 resource "aws_security_group" "metabase_ecs_sg" {
@@ -52,6 +54,8 @@ resource "aws_security_group" "metabase_ecs_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+
+  lifecycle { create_before_destroy = true }
 }
 
 resource "aws_security_group" "metabase_rds_sg" {
@@ -76,4 +80,6 @@ resource "aws_security_group" "metabase_rds_sg" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+
+  lifecycle { create_before_destroy = true }
 }
