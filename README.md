@@ -1,16 +1,16 @@
 <p align="center">
-    <img height="50" src="docs/logo.png">
+    <img height="50" src="https://github.com/HippoLabs-UK/terraform-aws-metabase/blob/main/docs/logo.png">
 </p>
 
 ## Metabase on AWS
 Terraform module for setting up a self-hosted Metabase solution on AWS.
 
 ## Infrastructure architecture
-<img src="docs/architecture.png" alt="text" width="800"/>
+<img src="https://github.com/HippoLabs-UK/terraform-aws-metabase/blob/main/docs/architecture.png" alt="text" width="800"/>
 
 
 ## Usage
-See [`examples`](examples) directory for working examples to reference:
+See [`examples`](https://github.com/HippoLabs-UK/terraform-aws-metabase/tree/main/examples) directory for working examples to reference:
 
 ```hcl
 module "metabase" {
