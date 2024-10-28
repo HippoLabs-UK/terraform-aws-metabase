@@ -100,10 +100,10 @@ variable "rds_backup_retention_period" {
   description = "Metabase backend database backup retention period"
 }
 
-variable "bastion_host_sg" {
-  type        = string
-  default     = ""
-  description = "Security group id of the bastion host to enable SSH tunneling access to the Metabase backend database"
+variable "bastion_host_security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = "Security group ids of the bastion hosts to enable SSH tunneling access to the Metabase backend database"
 }
 
 variable "default_tags" {
