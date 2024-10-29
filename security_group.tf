@@ -69,7 +69,7 @@ resource "aws_security_group" "metabase_rds_sg" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = var.bastion_host_sg == "" ? [aws_security_group.metabase_alb_sg.id, aws_security_group.metabase_ecs_sg.id] : [aws_security_group.metabase_alb_sg.id, aws_security_group.metabase_ecs_sg.id, var.bastion_host_sg]
+    security_groups = length(var.bastion_host_security_group_ids) == 0 ? [aws_security_group.metabase_alb_sg.id, aws_security_group.metabase_ecs_sg.id] : concat([aws_security_group.metabase_alb_sg.id, aws_security_group.metabase_ecs_sg.id], var.bastion_host_security_group_ids)
   }
 
   egress {

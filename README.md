@@ -89,7 +89,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_allow_ip_list"></a> [allow\_ip\_list](#input\_allow\_ip\_list) | Allowed IP list for Metabase access | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
-| <a name="input_bastion_host_sg"></a> [bastion\_host\_sg](#input\_bastion\_host\_sg) | Security group id of the bastion host to enable SSH tunneling access to the Metabase backend database | `string` | `""` | no |
+| <a name="input_bastion_host_security_group_ids"></a> [bastion\_host\_security\_group\_ids](#input\_bastion\_host\_security\_group\_ids) | Security group ids of the bastion hosts to enable SSH tunneling access to the Metabase backend database | `list(string)` | `[]` | no |
 | <a name="input_db_allocated_storage"></a> [db\_allocated\_storage](#input\_db\_allocated\_storage) | The storage in GB allocated to the Metabase backend database | `number` | `10` | no |
 | <a name="input_db_instance_type"></a> [db\_instance\_type](#input\_db\_instance\_type) | EC2 instance type for the backend RDS database | `string` | `"db.t3.micro"` | no |
 | <a name="input_default_tags"></a> [default\_tags](#input\_default\_tags) | Default resource tags | `map(string)` | <pre>{<br>  "project": "metabase"<br>}</pre> | no |
