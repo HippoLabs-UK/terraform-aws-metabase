@@ -119,3 +119,9 @@ variable "tags" {
   default     = {}
   description = "Additional resource tags"
 }
+
+variable "lb_drop_invalid_header_fields" {
+  type        = bool
+  default     = false
+  description = "Drop invalid HTTP request headers in load balancer"
+}
