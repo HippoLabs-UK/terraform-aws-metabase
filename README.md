@@ -109,6 +109,7 @@ No modules.
 | <a name="input_ssl_certificate"></a> [ssl\_certificate](#input\_ssl\_certificate) | SSL certificate ARN for the Metabase load balancer | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional resource tags | `map(string)` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | Id of the VPC where resources should be deployed | `string` | n/a | yes |
+| <a name="lb_drop_invalid_header_fields"></a> [lb\_drop\_invalid\_header\_fields](#input\_lb\_drop\_invalid\_header\_fields) | Drop invalid HTTP request headers in load balancer | `bool` | false | no |
 
 ## Outputs
 

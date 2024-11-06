@@ -31,7 +31,8 @@ resource "aws_lb" "load_balancer" {
 
   enable_deletion_protection = false
 
-  enable_http2 = true
+  enable_http2               = true
+  drop_invalid_header_fields = var.lb_drop_invalid_header_fields
 
   tags = merge(var.default_tags, var.tags)
 }
