@@ -37,6 +37,7 @@ resource "aws_db_instance" "metabase_db" {
   skip_final_snapshot         = true
   storage_encrypted           = true
   allow_major_version_upgrade = true
+  multi_az                    = true
 
   apply_immediately = true
 
