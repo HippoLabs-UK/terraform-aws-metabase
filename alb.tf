@@ -26,7 +26,7 @@ resource "aws_lb" "load_balancer" {
   name               = "metabase-${var.environment}-load-balancer"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.metabase_alb_sg.id]
+  security_groups    = concat([aws_security_group.metabase_alb_sg.id], var.alb_security_group_ids)
   subnets            = var.public_subnet_ids
 
   enable_deletion_protection = false

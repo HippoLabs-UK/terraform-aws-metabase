@@ -68,7 +68,7 @@ No modules.
 | [aws_iam_role.ecs_task_execution_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.ecsTaskExecutionPolicy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.ecs_instance_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
-| [aws_launch_configuration.ecs_launch_config](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_configuration) | resource |
+| [aws_launch_template.ecs_launch_template](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/launch_template) | resource |
 | [aws_lb.load_balancer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
 | [aws_lb_listener.alb_target_listener_http](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
 | [aws_lb_listener.alb_target_listener_https](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
@@ -88,16 +88,18 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_allow_ip_list"></a> [allow\_ip\_list](#input\_allow\_ip\_list) | Allowed IP list for Metabase access | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
+| <a name="input_alb_security_group_ids"></a> [alb\_security\_group\_ids](#input\_alb\_security\_group\_ids) | IDs for security groups to attach to the Metabase load balancer | `list(string)` | `[]` | no |
+| <a name="input_allow_ip_list"></a> [allow\_ip\_list](#input\_allow\_ip\_list) | Allowed IP list for Metabase access | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
 | <a name="input_bastion_host_security_group_ids"></a> [bastion\_host\_security\_group\_ids](#input\_bastion\_host\_security\_group\_ids) | Security group ids of the bastion hosts to enable SSH tunneling access to the Metabase backend database | `list(string)` | `[]` | no |
 | <a name="input_db_allocated_storage"></a> [db\_allocated\_storage](#input\_db\_allocated\_storage) | The storage in GB allocated to the Metabase backend database | `number` | `10` | no |
 | <a name="input_db_instance_type"></a> [db\_instance\_type](#input\_db\_instance\_type) | EC2 instance type for the backend RDS database | `string` | `"db.t3.micro"` | no |
-| <a name="input_default_tags"></a> [default\_tags](#input\_default\_tags) | Default resource tags | `map(string)` | <pre>{<br>  "project": "metabase"<br>}</pre> | no |
+| <a name="input_default_tags"></a> [default\_tags](#input\_default\_tags) | Default resource tags | `map(string)` | <pre>{<br/>  "project": "metabase"<br/>}</pre> | no |
 | <a name="input_desired_capacity"></a> [desired\_capacity](#input\_desired\_capacity) | Desired capacity for the EC2 auto-scaling group | `number` | `1` | no |
 | <a name="input_ecs_task_cpu"></a> [ecs\_task\_cpu](#input\_ecs\_task\_cpu) | ECS Task CPU | `number` | `1024` | no |
 | <a name="input_ecs_task_memory"></a> [ecs\_task\_memory](#input\_ecs\_task\_memory) | ECS Task Memory Reservation | `number` | `1678` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment name - used in resource names, e.g production | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | EC2 instance type the Metabase application will be running on | `string` | `"t3.small"` | no |
+| <a name="input_lb_drop_invalid_header_fields"></a> [lb\_drop\_invalid\_header\_fields](#input\_lb\_drop\_invalid\_header\_fields) | Drop invalid HTTP request headers in load balancer | `bool` | `false` | no |
 | <a name="input_log_retention_period"></a> [log\_retention\_period](#input\_log\_retention\_period) | Cloudwatch logs retention period | `number` | `14` | no |
 | <a name="input_metabase_db_credentials_secret_name"></a> [metabase\_db\_credentials\_secret\_name](#input\_metabase\_db\_credentials\_secret\_name) | Secrets Manager secret ARN that stores the Metabase backend database master password | `string` | n/a | yes |
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | List of private subnet IDs associated with the VPC | `list(string)` | n/a | yes |
@@ -109,7 +111,6 @@ No modules.
 | <a name="input_ssl_certificate"></a> [ssl\_certificate](#input\_ssl\_certificate) | SSL certificate ARN for the Metabase load balancer | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional resource tags | `map(string)` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | Id of the VPC where resources should be deployed | `string` | n/a | yes |
-| <a name="lb_drop_invalid_header_fields"></a> [lb\_drop\_invalid\_header\_fields](#input\_lb\_drop\_invalid\_header\_fields) | Drop invalid HTTP request headers in load balancer | `bool` | false | no |
 
 ## Outputs
 
@@ -118,8 +119,3 @@ No modules.
 | <a name="output_alb_dns"></a> [alb\_dns](#output\_alb\_dns) | Application Load Balancer DNS to access Metabase |
 | <a name="output_metabase_ecs_security_group_id"></a> [metabase\_ecs\_security\_group\_id](#output\_metabase\_ecs\_security\_group\_id) | Security Group Id to whitelist of Metabase will need to connect to a private RDS database in the same VPC |
 | <a name="output_rds_host"></a> [rds\_host](#output\_rds\_host) | Metabase Backend Database Host name |
-<!-- END_TF_DOCS -->
-
-
-## License
-Apache-2.0 Licensed. See [LICENSE](LICENSE).

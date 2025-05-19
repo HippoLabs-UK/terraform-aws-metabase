@@ -1,6 +1,6 @@
 resource "aws_security_group" "metabase_alb_sg" {
   name        = "metabase_${var.environment}_alb_security_group"
-  description = "Security group restricting incoming traffic to Metabase"
+  description = "Default security group restricting incoming traffic to Metabase"
 
   vpc_id = var.vpc_id
 

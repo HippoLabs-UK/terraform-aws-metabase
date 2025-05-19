@@ -29,6 +29,12 @@ variable "allow_ip_list" {
   description = "Allowed IP list for Metabase access"
 }
 
+variable "alb_security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = "IDs for security groups to attach to the Metabase load balancer"
+}
+
 variable "ssl_certificate" {
   type        = string
   default     = ""
