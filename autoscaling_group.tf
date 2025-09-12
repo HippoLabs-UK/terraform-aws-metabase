@@ -8,6 +8,17 @@ resource "aws_launch_template" "ecs_launch_template" {
   iam_instance_profile {
     name = aws_iam_instance_profile.ecs_instance_role_profile.name
   }
+
+  block_device_mappings {
+    device_name = "/dev/xvda"
+
+    ebs {
+      volume_size           = 30 # gb
+      volume_type           = "gp3"
+      encrypted             = true
+      delete_on_termination = false
+    }
+  }
 }
 
 resource "aws_autoscaling_group" "ecs_asg" {
