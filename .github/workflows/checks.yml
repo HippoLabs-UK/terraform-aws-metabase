@@ -6,11 +6,7 @@ on:
 
 jobs:
   tflint:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v4
@@ -39,6 +35,9 @@ jobs:
       - name: Run TFLint
         run: tflint -f compact
 
+  terraform-fmt:
+    runs-on: [ubuntu-latest]
+    steps:
       # https://github.com/dflook/terraform-github-actions
       - name: terraform fmt
         uses: dflook/terraform-fmt@v2

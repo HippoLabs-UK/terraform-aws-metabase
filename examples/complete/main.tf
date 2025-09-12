@@ -20,8 +20,8 @@ module "vpc" {
 }
 
 module "metabase" {
-  source = "HippoLabs-UK/metabase/aws"
-
+  source                              = "HippoLabs-UK/metabase/aws"
+  version                             = "1.0.5" # Use latest version from registry
   region                              = var.region
   environment                         = var.environment
   metabase_db_credentials_secret_name = var.metabase_db_credentials_secret_name
