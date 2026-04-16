@@ -131,3 +131,21 @@ variable "lb_drop_invalid_header_fields" {
   default     = false
   description = "Drop invalid HTTP request headers in load balancer"
 }
+
+variable "metabase_version" {
+  type        = string
+  default     = "latest"
+  description = "Metabase container image tag"
+}
+
+variable "db_mysql_version" {
+  type        = string
+  default     = "8.4"
+  description = "MySQL engine version for the backend RDS database"
+}
+
+variable "db_parameter_group_name" {
+  type        = string
+  default     = "default.mysql8.4"
+  description = "Parameter group name for the backend RDS database"
+}
