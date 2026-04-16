@@ -134,7 +134,7 @@ variable "lb_drop_invalid_header_fields" {
 
 variable "metabase_version" {
   type        = string
-  default     = "v0.59.5"
+  default     = "latest"
   description = "Metabase container image tag"
 }
 
