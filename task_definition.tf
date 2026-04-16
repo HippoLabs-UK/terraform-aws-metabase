@@ -7,7 +7,7 @@ resource "aws_ecs_task_definition" "task_definition" {
   container_definitions = jsonencode([
     {
       "name" : "metabase"
-      "image" : "metabase/metabase"
+      "image" : "metabase/metabase:${var.metabase_version}"
       "essential" : true
       "memoryReservation" : var.ecs_task_memory
       "cpu" : var.ecs_task_cpu
