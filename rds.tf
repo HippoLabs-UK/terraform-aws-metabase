@@ -18,8 +18,8 @@ resource "aws_db_instance" "metabase_db" {
   instance_class    = var.db_instance_type
 
   engine                 = "mysql"
-  engine_version         = "8.0"
-  parameter_group_name   = "default.mysql8.0"
+  engine_version         = "8.4"
+  parameter_group_name   = "default.mysql8.4"
   db_subnet_group_name   = aws_db_subnet_group.metabase_subnet_group.id
   vpc_security_group_ids = [aws_security_group.metabase_rds_sg.id]
 
